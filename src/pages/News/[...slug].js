@@ -3,7 +3,7 @@ import React from "react";
 
 const catchAllRoute = () => {
   return (
-    <div style={{ marginTop: "80px" }}>
+    <div>
       <h1>This is Catch route page</h1>
     </div>
   );

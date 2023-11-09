@@ -1,15 +1,12 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import RootLayout from "@/Components/Layouts/RootLalyout";
 import Banner from "@/Components/UI/Banner";
 import AllNews from "@/Components/UI/AllNews";
-import { useGetNewsQuery } from "@/Redux/Api/app";
-const inter = Inter({ subsets: ["latin"] });
 
 export default function HomePage({ allNews }) {
   // console.log(allNews)
 
-  const {data, isLoading, isError, isSuccess, error} = useGetNewsQuery();
+  // const { data, isLoading, isError, isSuccess, error } = useGetNewsQuery();
   // console.log(data, "from HomePage")
   return (
     <>
@@ -18,7 +15,7 @@ export default function HomePage({ allNews }) {
       </Head>
       <div>
         <Banner />
-        <AllNews allNews={data} />
+        <AllNews allNews={allNews} />
       </div>
     </>
   );
@@ -28,13 +25,23 @@ HomePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-// export const getServerSideProps = async () => {
-//   const res = await fetch("http://localhost:5000/news");
+export const getServerSideProps = async () => {
+  const res = await fetch("http://localhost:3000/api/news");
+  const data = await res.json();
+  console.log(data.data);
+  return {
+    props: {
+      allNews: data.data || null,
+    },
+  };
+};
+// export const patchData = async ()=>{
+//   const res = await fetch("http://localhost:3000/news");
 //   const data = await res.json();
-//   console.log(data);
+//   console.log(data.data);
 //   return {
 //     props: {
-//       allNews: data,
+//       allNews: data.data,
 //     },
 //   };
-// };
+// }

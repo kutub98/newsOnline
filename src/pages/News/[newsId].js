@@ -1,3 +1,5 @@
+// GetSingleNewsPage.js
+
 import React from "react";
 import { useRouter } from "next/router";
 import RootLayout from "@/Components/Layouts/RootLalyout";
@@ -8,24 +10,16 @@ import {
   ProfileOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { useGetSingleNewsByIdQuery } from "@/Redux/Api/app";
 
-
-const GetSingleNewsPage = () => {
-
-  const router = useRouter()
-  const {newsId} = router.query
-
-  const {data, isError, isLoading, isSuccess, error} = useGetSingleNewsByIdQuery(newsId)
-  console.log(data, isError, "From Single Page")
+const GetSingleNewsPage = ({ singleNews }) => {
   return (
-    <div style={{ margin: "20px 10px", marginTop: "80px" }}>
+    <div style={{ margin: "20px 10px" }}>
       <Row gutter={16}>
         <Col lg={{ span: 10 }} span={24}>
-          <Image src={data?.image_url} alt="" />
+          <Image src={singleNews?.image_url} alt="" />
         </Col>
         <Col lg={{ span: 14 }} span={24}>
-          <h1>{data?.title}</h1>
+          <h1>{singleNews?.title}</h1>
           <div
             style={{
               width: "98%",
@@ -36,51 +30,45 @@ const GetSingleNewsPage = () => {
           ></div>
           <Row gutter={24} style={{ marginTop: "10px" }}>
             <Col lg={{ span: 6 }} sm={{ span: 12 }}>
-              <CalendarOutlined /> {data?.release_date}
+              <CalendarOutlined /> {singleNews?.release_date}
             </Col>
             <Col lg={{ span: 6 }} sm={{ span: 12 }}>
-              <CommentOutlined /> {data?.comment_count}
+              <CommentOutlined /> {singleNews?.comment_count}
             </Col>
             <Col lg={{ span: 6 }} sm={{ span: 12 }}>
-              <ProfileOutlined /> {data?.category}
+              <ProfileOutlined /> {singleNews?.category}
             </Col>
             <Col lg={{ span: 6 }} sm={{ span: 12 }}>
-              <UserOutlined /> {data?.author}
+              <UserOutlined /> {singleNews?.author}
             </Col>
           </Row>
-          <p>{data?.description}</p>
+          <p>{singleNews?.description}</p>
         </Col>
       </Row>
     </div>
   );
 };
 
-export default GetSingleNewsPage;
-
 GetSingleNewsPage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
 };
 
-// export const getStaticPaths = async () => {
-//   const data = await fetch("http://localhost:5000/news");
-//   const res = await data.json();
-//   const paths = res.map((news) => ({
-//     params: { newsId: news.id },
-//   }));
+export default GetSingleNewsPage;
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
+// [newsId].js
 
-// export const getServerSideProps = async (context) => {
-//   const { params } = context;
-//   const data = await fetch(`http://localhost:5000/news/${params.newsId}`);
-//   const res = await data.json();
-//   return {
-//     props: {
-//       allNews: res,
-//     },
-//   };
-// };
+export const getServerSideProps = async ({ params }) => {
+  
+  const { newsId } = params; // Destructure 'id' directly from 'params'
+  
+
+  const data = await fetch(`http://localhost:3000/api/${newsId}`);
+  const result = await data.json();
+  console.log(result, "Single DATA");
+
+  return {
+    props: {
+      singleNews: result.data || null, // Pass the fetched data as a prop
+    },
+  };
+};

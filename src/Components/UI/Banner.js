@@ -15,11 +15,7 @@ const contentStyle = {
 };
 
 const Banner = () => (
-  <Carousel
-    effect="fade"
-    autoplay
-    style={{ margin: "20px 10px", marginTop: "80px" }}
-  >
+  <Carousel effect="fade" autoplay style={{ margin: "20px 10px" }}>
     {/* slider-1 */}
     <div>
       <Row>

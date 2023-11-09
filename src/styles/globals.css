@@ -3,3 +3,19 @@
     display: none;
   }
 }
+.UploadImage,
+.emailWidth {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0px;
+}
+
+.PostNews {
+  background-image: url("../Assets//images/images.jfif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: auto;
+}
+

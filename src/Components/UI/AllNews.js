@@ -10,9 +10,9 @@ import React from "react";
 
 const AllNews = ({ allNews }) => {
   const { Meta } = Card;
-  
+
   return (
-    <div>
+    <div style={{marginTop:"70px"}}>
       <Row gutter={14}>
         {allNews?.map((news) => (
           <Col
@@ -24,7 +24,7 @@ const AllNews = ({ allNews }) => {
           >
             <Card
               hoverable
-              style={{ margin: "12px" }}
+              style={{ margin: "12px 12px" }}
               cover={
                 <Image
                   alt="example"

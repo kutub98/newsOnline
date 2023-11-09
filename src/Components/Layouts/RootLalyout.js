@@ -38,6 +38,10 @@ const RootLayout = ({ children }) => {
       route: "/News/Blog",
     },
     {
+      page: "Post News",
+      route: "/PostNews",
+    },
+    {
       page: "Article",
       route: "/News/Article",
     },
@@ -45,10 +49,7 @@ const RootLayout = ({ children }) => {
       page: "Admin",
       route: "/Admin",
     },
-    {
-      page: "Dashboard",
-      route: "/dashboard",
-    },
+    
   ];
 
   useEffect(() => {
@@ -76,8 +77,9 @@ const RootLayout = ({ children }) => {
     <Layout className="layout">
       <Header
         style={{
-          position: "sticky",
+          position: "fixed",
           top: "0",
+          width: "100%",
           marginBottom: "10px",
           zIndex: "10",
         }}
@@ -120,7 +122,7 @@ const RootLayout = ({ children }) => {
                   key={index + 1}
                   style={{
                     backgroundColor:
-                      activeRoute === path.route ? "lightblue" : "transparent", // Change background color based on active route
+                      activeRoute === path.route ? "red" : "transparent", // Change background color based on active route
                   }}
                 >
                   <Link
@@ -157,20 +159,24 @@ const RootLayout = ({ children }) => {
 
       {/* Use Drawer component for the responsive menu */}
       <Drawer
+      className="Menu"
         title="Menu"
         placement="right"
+       
         closable={true}
         onClose={() => setMenuVisible(false)}
         visible={menuVisible}
       >
         <Menu
+          className="Menu"
           theme="dark"
           mode="vertical"
+         
           defaultSelectedKeys={["2"]}
           onClick={() => setMenuVisible(false)}
         >
           {paths.map((path, index) => (
-            <Menu.Item key={index + 1}>
+            <Menu.Item className="Menu" key={index + 1}>
               <Link href={path.route}>{path.page}</Link>
             </Menu.Item>
           ))}

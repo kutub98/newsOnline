@@ -13,15 +13,18 @@
     "@ant-design/icons": "^5.2.6",
     "@reduxjs/toolkit": "^1.9.6",
     "antd": "^5.9.2",
+    "dotenv": "^16.3.1",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
     "json-server": "^0.17.3",
+    "mongodb": "^6.1.0",
     "next": "13.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.46.2",
     "react-redux": "^8.1.2"
   },
   "devDependencies": {
-    "prettier": "3.0.3"
+    "prettier": "^3.0.3"
   }
 }

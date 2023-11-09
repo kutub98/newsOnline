@@ -8,7 +8,7 @@
       "release_date": "June 10, 2023",
       "category": "Health",
       "comment_count": 5,
-      "image_url": "/images/excersize.jpg"
+      "image_url": "https://images.everydayhealth.com/images/consisten-exercise-helps-anxiety-and-stress-1440x810.jpg"
     },
     {
       "id": "2",
@@ -18,7 +18,7 @@
       "release_date": "June 12, 2023",
       "category": "Technology",
       "comment_count": 10,
-      "image_url": "/images/Technology.jpg"
+      "image_url": "https://community.thriveglobal.com/wp-content/uploads/2020/07/Modren-Tech.jpg"
     },
     {
       "id": "3",
@@ -28,7 +28,7 @@
       "release_date": "June 15, 2023",
       "category": "Space",
       "comment_count": 15,
-      "image_url": "/images/Satellite.jpg"
+      "image_url": "https://www.ucsusa.org/sites/default/files/styles/original/public/images/gw-nasa-earth-science-mission-satellite.jpg?itok=YayKjdHs"
     },
     {
       "id": "4",
@@ -38,7 +38,7 @@
       "release_date": "June 16, 2023",
       "category": "Lifestyle",
       "comment_count": 20,
-      "image_url": "/images/excersize.jpg"
+      "image_url": "https://www.verywellmind.com/thmb/1llsvTaaZVmnJu0yFrOtWXibgRk=/2122x0/filters:no_upscale():max_bytes(150000):strip_icc()/sunset-meditation-56a905125f9b58b7d0f75e37.jpg"
     }
   ]
 }
